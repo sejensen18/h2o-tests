@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "cells": [
+    {
+      "type": "cs",
+      "input": "assist"
+    },
+    {
+      "type": "cs",
+      "input": "getFrames"
+    },
+    {
+      "type": "cs",
+      "input": "setupParse source_frames: [ \"mtcars.csv\"]"
+    },
+    {
+      "type": "cs",
+      "input": "parseFiles\n  source_frames: [\"mtcars.csv\"]\n  destination_frame: \"Key_Frame__mtcars.hex\"\n  parse_type: \"CSV\"\n  separator: 44\n  number_columns: 11\n  single_quotes: false\n  column_names: [\"mpg\",\"cyl\",\"disp\",\"hp\",\"drat\",\"wt\",\"qsec\",\"vs\",\"am\",\"gear\",\"carb\"]\n  column_types: [\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\",\"Numeric\"]\n  delete_on_done: true\n  check_header: 1\n  chunk_size: 4194304"
+    },
+    {
+      "type": "cs",
+      "input": "getFrameSummary \"Key_Frame__mtcars.hex\""
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML"
+    },
+    {
+      "type": "cs",
+      "input": "runAutoML {\"training_frame\":\"Key_Frame__mtcars.hex\",\"response_column\":\"mpg\",\"seed\":-1,\"max_models\":0,\"max_runtime_secs\":7200,\"stopping_metric\":\"AUTO\",\"stopping_rounds\":3,\"stopping_tolerance\":0.05}"
+    },
+    {
+      "type": "cs",
+      "input": "getLeaderboard \"AutoML_20170619_203119\""
+    }
+  ]
+}
